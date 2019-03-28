@@ -10,6 +10,12 @@ class TodoForm extends Component {
     }
   }
 
+  handleInput = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render() {
     return (
       <form className="form-inline">
@@ -20,10 +26,13 @@ class TodoForm extends Component {
             id="todo"
             className="form-control"
             placeholder="Nome da Atividade"
+            onChange={this.handleInput}
           />
         </div>
         <div className="form-group">
-          <select name="tipo" id="tipo" className="form-control">
+          <select name="tipo" id="tipo" className="form-control"
+            onChange={this.handleInput}
+            >
             <option value="1">Pessoal</option>
             <option value="2">Profissional</option>
           </select>
@@ -34,7 +43,15 @@ class TodoForm extends Component {
             name="dataConclusao"
             id="dataConclusao"
             className="form-control"
+            onChange={this.handleInput}
           />
+        </div>
+        <div className="form-group">
+          <button className="button button--primary"
+            onClick={() => alert('Enviado!')}
+          >
+            Adicionar
+          </button>
         </div>
       </form>
     );
