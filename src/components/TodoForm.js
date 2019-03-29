@@ -5,7 +5,7 @@ class TodoForm extends Component {
     super(props);
     this.state = {
       todo: '',
-      tipoId: '',
+      tipoId: '1',
       dataConclusao: '',
     }
   }
@@ -16,9 +16,17 @@ class TodoForm extends Component {
     })
   }
 
+  handleSubmit = (event) => {
+    const { todo, tipoId, dataConclusao } = this.state;
+    debugger
+    this.props.createTodo(todo, tipoId, dataConclusao)
+
+    event.preventDefault();
+  }
+
   render() {
     return (
-      <form className="form-inline">
+      <form className="form-inline" method="POST" onSubmit={this.handleSubmit}>
         <div className="form-group">
           <input
             type="text"
@@ -30,10 +38,10 @@ class TodoForm extends Component {
           />
         </div>
         <div className="form-group">
-          <select name="tipo" id="tipo" className="form-control"
-            onChange={this.handleInput}
+          <select name="tipoId" id="tipoId" className="form-control"
+            onChange={this.handleInput} value={this.state.tipoId}
             >
-            <option value="1">Pessoal</option>
+            <option defaultValue value="1">Pessoal</option>
             <option value="2">Profissional</option>
           </select>
         </div>
@@ -47,9 +55,8 @@ class TodoForm extends Component {
           />
         </div>
         <div className="form-group">
-          <button className="button button--primary"
-            onClick={() => alert('Enviado!')}
-          >
+          <button  type="submit"
+            className="button button--primary">
             Adicionar
           </button>
         </div>
