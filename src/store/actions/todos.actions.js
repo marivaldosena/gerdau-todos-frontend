@@ -1,6 +1,5 @@
 import { SHOW_ALL_TODOS, ADD_TODO  } from '../actionTypes';
 import axios from 'axios';
-import { process } from 'ipaddr.js';
 
 const SERVER_URL = process.env.SERVER_URL || 'http://localhost:5000';
 

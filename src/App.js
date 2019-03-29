@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './sass/App.scss';
 
 import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 import { fetchAllTodos, createTodo } from './store/actions/todos.actions';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <TodoForm createTodo={createTodo} />
+        <TodoList todos={this.props.todos} />
       </div>
     );
   }
