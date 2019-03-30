@@ -12,6 +12,8 @@ class App extends Component {
   }
 
   render() {
+    const { createTodo } = this.props;
+    
     return (
       <div className="App">
         <TodoForm createTodo={createTodo} />

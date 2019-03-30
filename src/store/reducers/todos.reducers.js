@@ -5,7 +5,8 @@ export default (state=[], action) => {
     case SHOW_ALL_TODOS:
       return [...action.todos]
     case ADD_TODO:
-      return [...state, action.payload]
+      const { id, todo, tipo, dataEntrega, finalizado } = action.payload
+      return [...state, { id, todo, tipo, dataEntrega, finalizado }]
     default:
       return state
   }

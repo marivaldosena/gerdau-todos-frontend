@@ -5,8 +5,8 @@ class TodoForm extends Component {
     super(props);
     this.state = {
       todo: '',
-      tipoId: '1',
-      dataConclusao: '',
+      tipo: 'pessoal',
+      dataEntrega: '',
     }
   }
 
@@ -17,16 +17,15 @@ class TodoForm extends Component {
   }
 
   handleSubmit = (event) => {
-    const { todo, tipoId, dataConclusao } = this.state;
-    debugger
-    this.props.createTodo(todo, tipoId, dataConclusao)
-
+    const { todo, tipo, dataEntrega } = this.state;
+    this.props.createTodo(todo, tipo, dataEntrega)
+    this.setState({ todo: '', tipo: 'pessoal', dataEntrega: '' })
     event.preventDefault();
   }
 
   render() {
     return (
-      <form className="form-inline" method="POST" onSubmit={this.handleSubmit}>
+      <form className="form-inline" onSubmit={this.handleSubmit}>
         <div className="form-group">
           <input
             type="text"
@@ -35,30 +34,32 @@ class TodoForm extends Component {
             className="form-control"
             placeholder="Nome da Atividade"
             onChange={this.handleInput}
+            value={this.state.todo}
           />
         </div>
         <div className="form-group">
-          <select name="tipoId" id="tipoId" className="form-control"
-            onChange={this.handleInput} value={this.state.tipoId}
+          <select name="tipo" id="tipo" className="form-control"
+            onChange={this.handleInput} value={this.state.tipo}
             >
-            <option defaultValue value="1">Pessoal</option>
-            <option value="2">Profissional</option>
+            <option defaultValue value="pessoal">Pessoal</option>
+            <option value="profissional">Profissional</option>
           </select>
         </div>
         <div className="form-group">
           <input
             type="date"
-            name="dataConclusao"
-            id="dataConclusao"
+            name="dataEntrega"
+            id="dataEntrega"
             className="form-control"
             onChange={this.handleInput}
+            value={this.state.dataEntrega}
           />
         </div>
         <div className="form-group">
-          <button  type="submit"
-            className="button button--primary">
-            Adicionar
-          </button>
+          <input
+            type="submit"
+            className="button button--primary"
+            value="Adicionar" />
         </div>
       </form>
     );
