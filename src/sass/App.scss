@@ -8,7 +8,7 @@
 }
 
 .App,
-.container,
+.checkbox,
 .form-inline,
 .form-group {
   display: flex;
@@ -38,6 +38,7 @@
 .form-control {
   padding: $md $sm;
   margin: $sm $md;
+  border-radius: $sm;
 
   flex-basis: 100%;
 }
@@ -62,4 +63,97 @@
 
 .button--primary {
   background-color: $primary;
+}
+table {
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  padding: $md;
+  margin: $sm;
+  border: $sm solid $white;
+  table-layout: fixed;
+  padding: $md;
+}
+
+table th {
+  background-color: #bdbdbd;
+}
+
+table tbody td:last-child {
+  color: $red;
+  padding: 0;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 2rem;
+  margin: -$lg auto $lg 1rem;
+  cursor: pointer;
+  font-size: 1.35rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: #eee;
+  border: 0.1rem solid $primary;
+  border-radius: $sm;
+}
+
+.checkbox:hover input ~ .check {
+  background-color: #ccc;
+}
+
+.checkbox input:checked ~ .check {
+  background-color: $primary;
+}
+
+.check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox input:checked ~ .check:after {
+  display: block;
+}
+
+.checkbox .check:after {
+  left: $md;
+  top: $sm;
+  width: $sm;
+  height: $md;
+  border: solid $white;
+  border-width: 0 0.15rem 0.15rem 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

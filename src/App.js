@@ -12,12 +12,12 @@ class App extends Component {
   }
 
   render() {
-    const { createTodo } = this.props;
+    const { todos, createTodo } = this.props;
     
     return (
       <div className="App">
         <TodoForm createTodo={createTodo} />
-        <TodoList todos={this.props.todos} />
+        <TodoList todos={todos} />
       </div>
     );
   }
