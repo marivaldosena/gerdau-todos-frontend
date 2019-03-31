@@ -26,6 +26,9 @@ class App extends Component {
     
     return (
       <div className="App">
+        <header>
+          <h1>To Do List</h1>
+        </header>
         <TodoForm createTodo={createTodo} />
         {todos.length ?
           <TodoList
