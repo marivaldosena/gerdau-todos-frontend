@@ -18,7 +18,7 @@ class TodoForm extends Component {
 
   handleSubmit = (event) => {
     const { todo, tipo, dataEntrega } = this.state;
-    this.props.createTodo(todo, tipo, dataEntrega)
+    this.props.createTodo(todo, tipo, dataEntrega || Date.now())
     this.setState({ todo: '', tipo: 'pessoal', dataEntrega: '' })
     event.preventDefault();
   }

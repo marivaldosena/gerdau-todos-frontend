@@ -4,7 +4,11 @@ import './sass/App.scss';
 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import { fetchAllTodos, createTodo } from './store/actions/todos.actions';
+import {
+  fetchAllTodos,
+  createTodo,
+  deleteTodo
+} from './store/actions/todos.actions';
 
 class App extends Component {
   componentDidMount() {
@@ -12,12 +16,17 @@ class App extends Component {
   }
 
   render() {
-    const { todos, createTodo } = this.props;
+    const { todos, createTodo, deleteTodo } = this.props;
     
     return (
       <div className="App">
         <TodoForm createTodo={createTodo} />
-        <TodoList todos={todos} />
+        {todos.length ?
+          <TodoList todos={todos} deleteTodo={deleteTodo} /> :
+          <div className="App--sem-atividades">
+            <p>Não há atividades registradas.</p>
+          </div>
+        }
       </div>
     );
   }
@@ -30,5 +39,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-  fetchAllTodos, createTodo
+  fetchAllTodos, createTodo, deleteTodo
 })(App);

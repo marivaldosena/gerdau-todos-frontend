@@ -55,9 +55,9 @@
   color: $white;
   font-weight: 400;
   border: 1px solid $primary-border;
-  -webkit-box-shadow: 0 0.7px 0.5px 0.7px rgba(1,88,155,0.8);
-  -moz-box-shadow: 0 0.7px 0.5px 0.7px rgba(1,88,155,0.8);
-  box-shadow: 0 0.7px 0.5px 0.7px rgba(1,88,155,0.8);
+  -webkit-box-shadow: 0 0.7px 0.5px 0.7px rgba($primary, 0.8);
+  -moz-box-shadow: 0 0.7px 0.5px 0.7px rgba($primary, 0.8);
+  box-shadow: 0 0.7px 0.5px 0.7px rgba($primary, 0.8);
   flex-basis: 95%;
 }
 
@@ -94,6 +94,14 @@ table tbody tr:nth-child(even) {
   display: flex;
   justify-content: space-evenly;
   margin: 0;
+
+  & .fa-edit {
+    color: $primary;
+  }
+
+  & .fa-trash-alt {
+    color: $red;
+  }
 }
 
 .checkbox {
@@ -107,6 +115,7 @@ table tbody tr:nth-child(even) {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  transform: scale(0.8);
 }
 
 .checkbox input {
@@ -156,4 +165,19 @@ table tbody tr:nth-child(even) {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.App--sem-atividades {
+  width: 95vw;
+  height: 20rem;
+  border: 1px solid;
+  align-self: center;
+  -webkit-box-shadow: 1x 2px 1px 1px rgba($primary, 0.8);
+  -moz-box-shadow: 1px 2px 1px 1px rgba($primary, 0.8);
+  box-shadow: 1px 2px 1px 1px rgba($primary, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  text-shadow: 0 1px 1px rgba($primary, 0.8);
 }

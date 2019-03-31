@@ -1,4 +1,8 @@
-import { SHOW_ALL_TODOS, ADD_TODO  } from '../actionTypes';
+import {
+  SHOW_ALL_TODOS,
+  ADD_TODO,
+  REMOVE_TODO 
+} from '../actionTypes';
 import axios from 'axios';
 
 const SERVER_URL = process.env.SERVER_URL || 'http://localhost:5000';
@@ -16,7 +20,7 @@ export const fetchAllTodos = () => (dispatch) => {
 
 export const addTodo = ({ id, todo, tipo, dataEntrega, finalizado }) => ({
   type: ADD_TODO,
-  payload: { id, todo, tipo, dataEntrega, finalizado }
+  todo: { id, todo, tipo, dataEntrega, finalizado }
 })
 
 export const createTodo = (todo, tipo, dataEntrega) =>
@@ -32,5 +36,18 @@ export const createTodo = (todo, tipo, dataEntrega) =>
       dispatch(addTodo({ id, todo, tipo, dataEntrega, finalizado }))
     })
     .catch(err => console.log(err))
+}
+
+export const removeTodo = (id) => {
+  return {
+    type: REMOVE_TODO,
+    id
+  }
+}
+
+export const deleteTodo = (id) => (dispatch) => {
+  return axios.delete(`${SERVER_URL}/todos/${id}`)
+  .then(_ => dispatch(removeTodo(id)))
+  .catch(err => console.log(err))
 }
 

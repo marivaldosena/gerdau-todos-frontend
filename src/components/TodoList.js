@@ -1,9 +1,9 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = (props) => {
-  const tarefas = props.todos.map((todo, index) =>
-   (<TodoItem key={index} todo={todo} />))
+const TodoList = ({ todos, deleteTodo }) => {
+  const tarefas = todos.map((todo, index) =>
+   (<TodoItem key={index} todo={todo} deleteTodo={deleteTodo} />))
 
   return (
     <table>
@@ -17,7 +17,7 @@ const TodoList = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.todos ? tarefas : <div>Carregando...</div>}
+        {todos ? tarefas : <div>Carregando...</div>}
       </tbody>
     </table>
   );
