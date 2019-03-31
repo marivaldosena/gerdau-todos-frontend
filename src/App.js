@@ -7,7 +7,8 @@ import TodoList from './components/TodoList';
 import {
   fetchAllTodos,
   createTodo,
-  deleteTodo
+  deleteTodo,
+  doUpdateTodo
 } from './store/actions/todos.actions';
 
 class App extends Component {
@@ -16,13 +17,22 @@ class App extends Component {
   }
 
   render() {
-    const { todos, createTodo, deleteTodo } = this.props;
+    const {
+      todos,
+      createTodo,
+      deleteTodo,
+      doUpdateTodo
+    } = this.props;
     
     return (
       <div className="App">
         <TodoForm createTodo={createTodo} />
         {todos.length ?
-          <TodoList todos={todos} deleteTodo={deleteTodo} /> :
+          <TodoList
+            todos={todos}
+            deleteTodo={deleteTodo}
+            doUpdateTodo={doUpdateTodo}
+          /> :
           <div className="App--sem-atividades">
             <p>Não há atividades registradas.</p>
           </div>
@@ -39,5 +49,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-  fetchAllTodos, createTodo, deleteTodo
+  fetchAllTodos, createTodo, deleteTodo, doUpdateTodo
 })(App);

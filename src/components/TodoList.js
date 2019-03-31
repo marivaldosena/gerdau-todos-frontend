@@ -1,9 +1,13 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos, deleteTodo }) => {
+const TodoList = ({ todos, deleteTodo, doUpdateTodo }) => {
   const tarefas = todos.map((todo, index) =>
-   (<TodoItem key={index} todo={todo} deleteTodo={deleteTodo} />))
+   (<TodoItem key={index}
+      todo={todo}
+      deleteTodo={deleteTodo}
+      doUpdateTodo={doUpdateTodo}
+    />))
 
   return (
     <table>
