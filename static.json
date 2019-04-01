@@ -5,7 +5,7 @@
   },
   "proxies": {
     "/todos": {
-      "origin": "https://desolate-island-98701.herokuapp.com/todos/"
+      "origin": "https://msena-gerdau-node.herokuapp.com/todos/"
     }
   }
 }
