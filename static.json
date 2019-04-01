@@ -4,8 +4,8 @@
     "/**": "index.html"
   },
   "proxies": {
-    "/": {
-      "origin": "https://desolate-island-98701.herokuapp.com/"
+    "/todos": {
+      "origin": "https://desolate-island-98701.herokuapp.com/todos/"
     }
   }
 }
