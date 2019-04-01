@@ -6,7 +6,8 @@ import {
 } from '../actionTypes';
 import axios from 'axios';
 
-const SERVER_URL = (process.env.SERVER_URL || "") || 'http://localhost:5000';
+const SERVER_URL = (process.env.SERVER_URL || 'https://msena-gerdau-python.herokuapp.com/')
+  || 'http://localhost:5000';
 
 export const loadAllTodos = (todos) => ({
   type: SHOW_ALL_TODOS,
