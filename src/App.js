@@ -40,6 +40,9 @@ class App extends Component {
             <p>Não há atividades registradas.</p>
           </div>
         }
+        <div className="popup">
+          
+        </div>
       </div>
     );
   }

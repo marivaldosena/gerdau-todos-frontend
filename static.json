@@ -1,0 +1,11 @@
+{
+  "root": "build/",
+  "routes": {
+    "/**": "index.html"
+  },
+  "proxies": {
+    "/todos": {
+      "origin": "https://desolate-island-98701.herokuapp.com/todos"
+    }
+  }
+}
